@@ -1,0 +1,4 @@
+resources:
+
+http://www.nealgroothuis.name/introduction-to-data-types-and-objects-in-r/
+http://adv-r.had.co.nz/Data-structures.html
