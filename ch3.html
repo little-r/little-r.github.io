@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script>
+        function display(divID)
+            {
+                var clickedDiv=document.getElementById(divID);
+                clickedDiv.style.color="#000000";
+                var pre = clickedDiv.getElementsByTagName('pre');
+                if (pre != undefined) 
+                {
+                    for (i in pre) {
+                        pre[i].style.color="#333";
+                        pre[i].style.backgroundColor="#f5f5f5";
+                        pre[i].style.border="1px solid #ccc";
+                    }
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">The Little R'er</a>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Chapter 3</h1>
+        <h2>Data Frames</h2>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a matrix?</p>
+          <pre>  x y
+1 1 A
+2 2 B
+3 3 C
+</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q1" onclick=display("c3q1")>
+          <p>No</p>
+          <p>because it is a collection of vectors of different types.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>  x y
+1 1 A
+2 2 B
+3 3 C
+</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q2" onclick=display("c3q2")>
+          <p>Yes</p>
+          <p>because it is a collection of vectors of different types.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>1 1 A
+2 2 B
+3 3 C
+</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q3" onclick=display("c3q3")>
+          <p>No,</p>
+          <p>because the vectors have no names.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(x=c("1", "2", "3"), y=c("A", "B", "C"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q4" onclick=display("c3q4")>
+          <p>Yes</p>
+          <p>because it is a collection of named vectors.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(c("1", "2", "3"),c("A", "B", "C"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q5" onclick=display("c3q5")>
+          <p>Yes</p>
+          <p>because it is a collection of named vectors -- with really ugly names:</p>
+          <pre>  c..1....2....3.. c..A....B....C..
+1                1                A
+2                2                B
+3                3                C
+</pre>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>beatles <- c("John", "Paul", "George", "Ringo")
+destinyschild <- c("Beyonce", "Kelly", "Michelle")
+data.frame(beatles, destinyschild)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q6" onclick=display("c3q6")>
+          <p>No</p>
+          <p>because it is a collection of named vectors of unequal lengths.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>beatles <- c("John", "Paul", "George", "Ringo")
+monkees <- c("Micky", "Michael", "Peter", "Davy")
+data.frame(beatles, monkees)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q7" onclick=display("c3q7")>
+          <p>Yes</p>
+          <p>because it is a collection of named vectors of equal length.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is the value of <tt>bands$beatles</tt> where <tt>bands</tt> is</p>
+          <pre>data.frame(beatles=c("John", "Paul", "George", "Ringo"), monkees=c("Micky", "Michael", "Peter", "Davy"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q8" onclick=display("c3q8")>
+          <p><tt>[1] John   Paul   George Ringo </tt></p>
+          <p>because those are the values of the vector named <tt>beatles</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is the value of <tt>bands$Beatles</tt> where <tt>bands</tt> is</p>
+          <pre>data.frame(beatles=c("John", "Paul", "George", "Ringo"), monkees=c("Micky", "Michael", "Peter", "Davy"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q9" onclick=display("c3q9")>
+          <p><tt>NULL</tt></p>
+          <p>because there is no vector named <tt>Beatles</tt> in <tt>bands</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is the value of <tt>bands$Beatles</tt> where <tt>bands</tt> is</p>
+          <pre>data.frame(beatles=c("John", "Paul", "George", "Ringo"), monkees=c("Micky", "Michael", "Peter", "Davy"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q10" onclick=display("c3q10")>
+          <p><tt>NULL</tt></p>
+          <p>because there is no vector named <tt>Beatles</tt> in <tt>bands</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(data.frame(slayers=c("buffy", "faith", "kendra")), data.frame(scoobies=c("willow", "xander", "giles")))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q11" onclick=display("c3q11")>
+          <p>yes</p>
+          <p>because it is a combination of two data frames.</p>
+        </div>
+    </div>
+   <hr>
+       <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(data.frame(slayers=c("buffy", "faith", "kendra")), data.frame(scoobies=c("willow", "xander", "giles", "anya", "tara", "dawn")))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q12" onclick=display("c3q12")>
+          <p>yes</p>
+          <p>although it may not look like you expect it to:</p>
+          <pre>  slayers scoobies
+1   buffy   willow
+2   faith   xander
+3  kendra    giles
+4   buffy     anya
+5   faith     tara
+6  kendra     dawn</pre>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(data.frame(slayers=c("buffy", "faith", "kendra")), data.frame(scoobies=c("willow", "xander", "giles", "anya", "tara")))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q13" onclick=display("c3q13")>
+          <p>no</p>
+          <p>because the data frame <tt>slayers</tt> and the data frame <tt>scoobies</tt> are of lengths that are not the same, nor is one evenly divisisble by the other.</pre>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a data frame?</p>
+          <pre>data.frame(capitols=c("Trenton", "Annapolis", "Sacramento"), representatives=c(12,8,53), bird=c("cardinal", "oriole", "quail"), row.names=c("New Jersey", "Maryland", "California"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q14" onclick=display("c3q14")>
+          <p>yes</p>
+          <p>because row names can be specified in data frames, though they do not have to be:</p>
+          <pre>             capitols representatives     bird
+New Jersey    Trenton              12 cardinal
+Maryland    Annapolis               8   oriole
+California Sacramento              53    quail</pre>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>states[3,]</tt> where <tt>states</tt> is </p>
+          <pre>data.frame(capitols=c("Trenton", "Annapolis", "Sacramento"), representatives=c(12,8,53), bird=c("cardinal", "oriole", "quail"), row.names=c("New Jersey", "Maryland", "California"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q15" onclick=display("c3q15")>
+          <pre>             capitols representatives  bird
+California Sacramento              53 quail</pre>
+          <p>because California is the third row of <tt>states</tt>.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>states["California",]</tt> where <tt>states</tt> is </p>
+          <pre>data.frame(capitols=c("Trenton", "Annapolis", "Sacramento"), representatives=c(12,8,53), bird=c("cardinal", "oriole", "quail"), row.names=c("New Jersey", "Maryland", "California"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q16" onclick=display("c3q16")>
+          <pre>             capitols representatives  bird
+California Sacramento              53 quail</pre>
+          <p>because California is the specified row in <tt>states</tt>.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>states["California",2]</tt> where <tt>states</tt> is </p>
+          <pre>data.frame(capitols=c("Trenton", "Annapolis", "Sacramento"), representatives=c(12,8,53), bird=c("cardinal", "oriole", "quail"), row.names=c("New Jersey", "Maryland", "California"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q17" onclick=display("c3q17")>
+          <p><tt>53</tt></p>
+          <p>because California is the specified row in <tt>states</tt>, <tt>representatives</tt> is the second column in <tt>states</tt>, and <tt>53</tt> is the value in row <tt>California</tt>, column <tt>representatives</tt>.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- rbind(who, data.frame(doctors=4, actors="Tom Baker"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q18" onclick=display("c3q18")>
+          <p>yes</p>
+          <p>because rbind adds a row to a data frame.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>who[5,2]</tt> when <tt>who</tt> is</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- rbind(who, data.frame(doctors=4, actors="Tom Baker"), data.frame(doctors=5, actors="Peter Davison"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q19" onclick=display("c3q19")>
+          <p><tt>Peter Davison</tt></p>
+          <p>because the fifth row of <tt>who</tt> is</p>
+          <pre>5       5     Peter Davison</pre>
+          <p>and <tt>Peter Davison</tt> is the value in the second column.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- rbind(who, data.frame(doctors=4, played_by="Tom Baker"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q19-1" onclick=display("c3q19-1")>
+          <p>no</p>
+          <p>because the column names used do not match.</p>
+        </div>
+    </div>
+   <hr>      
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- cbind(who, start_year=c(1963, 1966, 1970))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q20" onclick=display("c3q20")>
+          <p>yes</p>
+          <p>because cbind adds a column to a data frame.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- cbind(who, start_year=c(1963, 1966, 1970, 1974))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q21" onclick=display("c3q21")>
+          <p>no</p>
+          <p>because all columns in a data frame must have the same number of rows.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"))
+who <- cbind(who, start_year=c(1963, 1966, 1970, 1974))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q22" onclick=display("c3q22")>
+          <p>no</p>
+          <p>because all columns in a data frame must have the same number of rows.</p>
+        </div>
+    </div>   
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is is true that this creates a data frame?</p>
+          <pre>who <- data.frame(doctors=c(1, 2, 3), actors=c("William Hartnell", "Patrick Troughton", "Jon Pertwee"), row.names=c("A", "B", "C"))
+new_who <- data.frame(start_year=c(1963, 1966, 1970), row.names=c("I", "II", "III")) 
+whole_who <- cbind(who, new_who)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c3q23" onclick=display("c3q23")>
+          <p>yes</p>
+          <p>because row names do not matter when combining data frames.</p>
+        </div>
+    </div>   
+  <hr>
+      <footer>
+        <p><center><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="img/license.png"></a></center></p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
