@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">The Little R'er</a>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Chapter 4</h1>
+        <h2>Factors</h2>
+      </div>
+    </div>
+    
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a factor?</p>
+          <pre>factor(c(1,2,3,4,5,6,7,8))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q1" onclick=display("c4q1")>
+          <p>Yes</p>
+          <p>because it is a vector of eight values passed as an argument to the function <tt>factor</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a factor?</p>
+          <pre>factor(1,2,3,4,5,6,7,8)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q2" onclick=display("c4q2")>
+          <p>No</p>
+          <p>because it is eight values passed as eight arguments to the function <tt>factor</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many levels are in factor <tt>f</tt> where</p>
+          <pre>f <- factor(c(1,1,2,1,3,4,3,5,1))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q3" onclick=display("c4q3")>
+          <p>Five</p>
+          <p>because there are five unique values in factor <tt>f</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>levels(f)</tt> where</p>
+          <pre>f <- factor(c(1,1,2,1,3,4,3,5,1))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q4" onclick=display("c4q4")>
+          <p>[1] "1" "2" "3" "4" "5"</p>
+          <p>because <tt>levels()</tt> gets a list of factors.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>levels(f)</tt> where</p>
+          <pre>f <- factor(c(1,3,4,4), levels=c(1,2,3,4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q5" onclick=display("c4q5")>
+          <p>[1] "1" "2" "3" "4"</p>
+          <p>because a factor can have levels not represented in the data.</p>
+        </div>
+    </div>
+   <hr>    
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>f</tt> where</p>
+          <pre>f <- factor(c(1,3,4,4,5), levels=c(1,2,3,4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q6" onclick=display("c4q6")>
+          <p>[1] 1    3    4    4    &lt;NA&gt;</p>
+          <p>because a factor cannot have data not represented in the levels.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>f</tt> where</p>
+          <pre>f <- factor(c("sunny", "cloudy", "rainy", "cloudy"), levels=c("sunny", "cloudy", "windy", "rainy"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q7" onclick=display("c4q7")>
+          <p>[1] 1    3    4    4    &lt;NA&gt;</p>
+          <p>because a factor cannot have data not represented in the levels.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many levels does <tt>f</tt> have where <tt>f</tt> is</p>
+          <pre>f <- factor(1:6)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q8" onclick=display("c4q8")>
+          <p>six</p>
+          <p>because <tt>1:6</tt> produces a vector of values <tt>1</tt> through <tt>6</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many levels does <tt>f</tt> have where <tt>f</tt> is</p>
+          <pre>f <- factor(1:6,1:9)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q9" onclick=display("c4q9")>
+          <p>nine</p>
+          <p>because the second argument to <tt>factor()</tt> is <tt>levels</tt> and <tt>1:9</tt> produces a vector of values <tt>1</tt> through <tt>9</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:8, dim=c(8))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q10" onclick=display("c4q10")>
+          <p>yes</p>
+          <p>because it is a collection of values with one dimension.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:8, dim=c(2,4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q11" onclick=display("c4q11")>
+          <p>yes</p>
+          <p>because it is a collection of values with two dimensions.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>class(a)</tt> where</p>
+          <pre>a <- array(1:8, dim=c(2,4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q11-1" onclick=display("c4q11-1")>
+          <p>matrix</p>
+          <p>because R treats two-dimensional arrays and matrices the same, and uses matrix to refer to both.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:8, dim=c(2,2,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q12" onclick=display("c4q12")>
+          <p>yes</p>
+          <p>because it is a collection of values with three dimensions.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:3, dim=c(2,4,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q13" onclick=display("c4q13")>
+          <p>yes</p>
+          <p>because the data used will be recycled to fit the dimensions.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:6, dim=c(2,2,2), dimnames=c("rows","columns","groups")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q14" onclick=display("c4q14")>
+          <p>no</p>
+          <p>because <tt>dimnames</tt> must be a list.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:6, dim=c(2,2,2), dimnames=list("rows","columns","groups")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q15" onclick=display("c4q15")>
+          <p>no</p>
+          <p>because <tt>dimnames</tt> does not have a value for each component of each dimension.</p> <!-- Component seems like the wrong word here, but I'm not sure what the right one is. -->
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is an array?</p>
+          <pre>array(1:6, dim=c(2,2,2), dimnames=list(c("row1","row2"),c("col1","col2"),c("group1","group2")))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c4q16" onclick=display("c4q16")>
+          <p>yes</p>
+          <p>because <tt>dimnames</tt> has a value for each component of each dimension.</p> <!-- Component seems like the wrong word here, but I'm not sure what the right one is. -->
+        </div>
+    </div>
+    
+  <hr>
+      <footer>
+        <p><center><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="img/license.png"></a></center></p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
