@@ -1,4 +1,8 @@
 resources:
 
+http://cran.r-project.org/doc/manuals/R-intro.pdf
 http://www.nealgroothuis.name/introduction-to-data-types-and-objects-in-r/
 http://adv-r.had.co.nz/Data-structures.html
+http://en.wikibooks.org/wiki/R_Programming/Data_types
+http://www.cyclismo.org/tutorial/R/tables.html
+https://www.stat.auckland.ac.nz/~paul/ItDT/HTML/node60.html
