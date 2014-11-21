@@ -37,20 +37,31 @@
     <div class="row">
         <div class="col-md-6">
           <p>Is it true that this is a table?</p>
-          <pre>table(c(1,2,3,4,5,6,7,8))</pre>
+          <pre>table(c(1,1,2,3,3,3))</pre>
         </div>
         <div class="col-md-6 cover" id="c5q1" onclick=display("c5q1")>
           <p>Yes</p>
-          <p>because it is a vector of eight values passed as an argument to the function <tt>table</tt>.</p>
+          <p>because it is a vector of values passed as an argument to the function <tt>table()</tt>.</p> <!-- This is not a great "because" -->
         </div>
     </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many cases does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q2" onclick=display("c5q2")>
+          <p>6</p>
+          <p>because there are six values in the vector passed to <tt>table()</tt>.</p>
+        </div>
+    </div>  
    <hr>
     <div class="row">
         <div class="col-md-6">
           <p>How many columns does <tt>t</tt> have where <tt>t</tt> is</p>
           <pre>table(c(1,1,2,3,3,3))</pre>
         </div>
-        <div class="col-md-6 cover" id="c5q2" onclick=display("c5q2")>
+        <div class="col-md-6 cover" id="c5q3" onclick=display("c5q3")>
           <p>3</p>
           <p>because there are three unique values in the vector passed to <tt>table()</tt>.</p>
         </div>
@@ -58,18 +69,166 @@
    <hr>
     <div class="row">
         <div class="col-md-6">
+          <p>How many dimensions does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q3-1" onclick=display("c5q3-1")>
+          <p>3</p>
+          <p>because table dimensions are the same as table columns, and there are three unique values in the vector passed to <tt>table()</tt>.</p>  <!-- Is this true for 2 way tables? -->
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many factors does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q4" onclick=display("c5q4")>
+          <p>1</p>
+          <p>because one vector of values has been passed to <tt>table()</tt>.</p>
+        </div>
+    </div>     
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that the number of cases and columns created by <tt>table(t)</tt> are equal where <tt>t</tt> is</p>
+          <pre>table(c(1,2,3,4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q5" onclick=display("c5q5")>
+          <p>Yes</p>
+          <p>because the values in <tt>t</tt> are all unique.  Because columns and dimensions are the same, the number of cases are the same as the number of dimensions.  With this specification of <tt>t</tt>, the values, cases, columns and dimensions are all equal.</p>
+        </div>
+    </div>     
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>t[1]</tt> where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q5-1" onclick=display("c5q5-1")>
+          <p>2</p>
+          <p>because the values in a one-way table are a count, and the value of column <tt>1</tt>, <tt>1</tt>, appears twice in the factor passed to the table.</p> <!-- Shauna, you need to look through how you're referring to tables vs factors passed in and the values contained -- this is getting confusing. -->
+        </div>
+    </div>     
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>t[3]</tt> where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q5-2" onclick=display("c5q5-2")>
+          <p>3</p>
+          <p>because the values in a one-way table are a count, and the value of column <tt>3</tt>, <tt>3</tt>, appears three times in the factor passed to the table.</p> 
+        </div>
+    </div>     
+   <hr>   
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+table(town, team)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q6" onclick=display("c5q6")>
+          <p>Yes</p>
+          <p>because it is two vectors passed as arguments to the function <tt>table()</tt>.</p> <!-- This is not a great "because" either -->
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>How many factors does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+table(town, team)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q7" onclick=display("c5q7")>
+          <p>2</p>
+          <p>because two vectors of values have been passed as arguments to the function <tt>table()</tt>.</p> 
+        </div>
+    </div>    
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>How many cases does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+table(town, team)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q8" onclick=display("c5q8")>
+          <p>5</p>
+          <p>because the two vectors passed to <tt>table()</tt> each have five values.</p> 
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>a <- c(1,2,3,4)
+b <- c(1,2,3,4,5)
+table(a,b)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q9" onclick=display("c5q9")>
+          <p>No</p>
+          <p>because factors passed to <tt>table()</tt> must be of equal lengths.</p> 
+        </div>
+    </div>        
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
           <p>Is it true that this is a table?</p>
           <pre>table(1,1,2,3,3,3)</pre>
         </div>
-        <div class="col-md-6 cover" id="c5q3" onclick=display("c5q3")>
+        <div class="col-md-6 cover" id="c5q10" onclick=display("c5q10")>
           <p>Yes</p>
-          <p>but it does not look like you might expect:</p> <!-- why does it look this way? -->
+          <p>because it is six vectors <!-- really? --> passed as arguments to the function <tt>table()</tt>, and they are of equal lengths.  However, it may not look like you expect:</p> 
           <pre>, ,  = 2,  = 3,  = 3,  = 3
 
    
     1
   1 1
 </pre>
+        </div>
+    </div>   
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many factors does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(1,1,2,3,3,3)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q11" onclick=display("c5q11")>
+          <p>Six</p>
+          <p>because there are six vectors <!-- really? --> passed as arguments to the function <tt>table()</tt>.</p>
+        </div>
+    </div>      
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many cases does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(1,1,2,3,3,3)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q12" onclick=display("c5q12")>
+          <p>1</p>
+          <p>because each of the six vectors passed to the function <tt>table()</tt> has one value.</p>
+        </div>
+    </div>      
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>fans[1,2]</tt> where <tt>fans</tt> is</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+fans <- table(town, team)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q13" onclick=display("c5q13")>
+          <p>1</p>
+          <p>because the values in a two-way table are a count of the number of times a pair of values appear across the two factors passed to the table.  <tt>[1,2]</tt> specifies row one and column two:</p>
+          <pre>          team
+town       Red Sox Yankees
+  Boston         2       1
+  New York       0       2
+</pre>
+<p>It's worth noting that these are the values "Boston" and "Yankees".  This pair appears once, in the fourth of five cases.</p>
         </div>
     </div>
    <hr>
@@ -78,37 +237,15 @@
           <p>Is it true that this is a table?</p>
           <pre>table(list("la",2,"ha",3.4))</pre>
         </div>
-        <div class="col-md-6 cover" id="c5q4" onclick=display("c5q4")>
-          <p>Yes</p>
-          <p>but it also does not look like you might expect:</p> <!-- why does it look this way? -->
+        <div class="col-md-6 cover" id="c5q14" onclick=display("c5q14")>
+          <p>WHO KNOWS</p>
+          <p>It gives:</p>
           <pre>, , .3 = ha, .4 = 3.4
 
     .2
 .1   2
   la 1</pre>
-        </div>
-    </div>
-   <hr>
-    <div class="row">
-        <div class="col-md-6">
-          <p>How many dimensions does <tt>t</tt> have where <tt>t</tt> is</p>
-          <pre>table(c("A", "B", "A", "C", "C", "D"))</pre>
-        </div>
-        <div class="col-md-6 cover" id="c5q5" onclick=display("c5q5")>
-          <p>4</p>
-          <p>because the dimensions of a table are equal to the number of columns are equal to the number of unique values passed in.</p> <!-- Maybe not true for other kinds of input. -->
-        </div>
-    </div>
-   <hr>
-    <div class="row">
-        <div class="col-md-6">
-          <p>What is the summary of <tt>t</tt> where <tt>t</tt> is</p>
-          <pre>table(c("A", "B", "A", "C", "C", "D"))</pre>
-        </div>
-        <div class="col-md-6 cover" id="c5q6" onclick=display("c5q6")>
-          <pre>Number of cases in table: 6 
-Number of factors: 1</pre>
-          <p></p> <!-- This is especially not Little Schemer style. :( -->
+          <p>Thoughts: the documentation (http://www.inside-r.org/r-doc/base/table) says that you can pass lists, but it's doing weird things, and when I pass two lists I get the error: Error in sort.list(y) : 'x' must be atomic for 'sort.list'  Have you called 'sort' on a list?</p> <!-- THIS ONE IS SUPER BROKEN. -->
         </div>
     </div>
    <hr>
@@ -117,10 +254,10 @@ Number of factors: 1</pre>
           <p>Is it true that this is a table?</p>
           <pre>as.table(c(1,2,3,2,3))</pre>
         </div>
-        <div class="col-md-6 cover" id="c5q7" onclick=display("c5q7")>
-          <p>Yes</p>
-          <p>Not sure why.</p> <!-- And this page says you shouldn't be able to do this: http://www.cyclismo.org/tutorial/R/types.html#one-way-tables Argh this chapter is a mess. -->
-        </div>
+        <div class="col-md-6 cover" id="c5q15" onclick=display("c5q15")>
+          <p>WHO KNOWS</p>
+          <p>This page says you shouldn't be able to do this: http://www.cyclismo.org/tutorial/R/types.html#one-way-tables/.</p>
+        </div>  <!-- ALSO BROKEN. -->
     </div>
    <hr>
     <div class="row">
@@ -130,47 +267,13 @@ Number of factors: 1</pre>
 colnames(diy_table) <- c("A","B","C")
 as.table(diy_table)</pre>
         </div>
-        <div class="col-md-6 cover" id="c5q8" onclick=display("c5q8")>
+        <div class="col-md-6 cover" id="c5q16" onclick=display("c5q16")>
           <p>Yes</p>
-          <p></p> <!-- Needs to be more step by step. -->
+          <p></p> <!-- Break this down into more steps. -->
         </div>
     </div>
-   <hr>
-     <div class="row">
-        <div class="col-md-6">
-          <p>Is it true that this is a table?</p>
-          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
-team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
-table(town, team</pre>
-        </div>
-        <div class="col-md-6 cover" id="c5q9" onclick=display("c5q9")>
-          <p>Yes</p>
-          <p>because </p> <!-- why? -->
-        </div>
-    </div>
-   <hr>
-     <div class="row">
-        <div class="col-md-6">
-          <p>What is <tt>fans[1,2]</tt> where <tt>fans</tt> is</p>
-          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
-team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
-fans <- table(town, team)</pre>
-        </div>
-        <div class="col-md-6 cover" id="c5q10" onclick=display("c5q10")>
-          <p>1</p>
-          <p>because <tt>fans</tt> looks like:</p>
-          <pre>          team
-town       Red Sox Yankees
-  Boston         2       1
-  New York       0       2
-</pre>
-        </div>
-    </div>
-   <hr>
     
-    
-    <!-- Make your own tables! -->
-    <!-- Two way tables! -->
+    <!-- Create a question that shows off summary() -->
     
   <hr>
       <footer>
