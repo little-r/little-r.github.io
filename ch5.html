@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">The Little R'er</a>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Chapter 5</h1>
+        <h2>Tables</h2>
+      </div>
+    </div>
+    
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>table(c(1,2,3,4,5,6,7,8))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q1" onclick=display("c5q1")>
+          <p>Yes</p>
+          <p>because it is a vector of eight values passed as an argument to the function <tt>table</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many columns does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(c(1,1,2,3,3,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q2" onclick=display("c5q2")>
+          <p>3</p>
+          <p>because there are three unique values in the vector passed to <tt>table()</tt>.</p>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>table(1,1,2,3,3,3)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q3" onclick=display("c5q3")>
+          <p>Yes</p>
+          <p>but it does not look like you might expect:</p> <!-- why does it look this way? -->
+          <pre>, ,  = 2,  = 3,  = 3,  = 3
+
+   
+    1
+  1 1
+</pre>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>table(list("la",2,"ha",3.4))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q4" onclick=display("c5q4")>
+          <p>Yes</p>
+          <p>but it also does not look like you might expect:</p> <!-- why does it look this way? -->
+          <pre>, , .3 = ha, .4 = 3.4
+
+    .2
+.1   2
+  la 1</pre>
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>How many dimensions does <tt>t</tt> have where <tt>t</tt> is</p>
+          <pre>table(c("A", "B", "A", "C", "C", "D"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q5" onclick=display("c5q5")>
+          <p>4</p>
+          <p>because the dimensions of a table are equal to the number of columns are equal to the number of unique values passed in.</p> <!-- Maybe not true for other kinds of input. -->
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is the summary of <tt>t</tt> where <tt>t</tt> is</p>
+          <pre>table(c("A", "B", "A", "C", "C", "D"))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q6" onclick=display("c5q6")>
+          <pre>Number of cases in table: 6 
+Number of factors: 1</pre>
+          <p></p> <!-- This is especially not Little Schemer style. :( -->
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>as.table(c(1,2,3,2,3))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q7" onclick=display("c5q7")>
+          <p>Yes</p>
+          <p>Not sure why.</p> <!-- And this page says you shouldn't be able to do this: http://www.cyclismo.org/tutorial/R/types.html#one-way-tables Argh this chapter is a mess. -->
+        </div>
+    </div>
+   <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>diy_table <- matrix(c(4,3,2),ncol=3,byrow=TRUE)
+colnames(diy_table) <- c("A","B","C")
+as.table(diy_table)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q8" onclick=display("c5q8")>
+          <p>Yes</p>
+          <p></p> <!-- Needs to be more step by step. -->
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>Is it true that this is a table?</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+table(town, team</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q9" onclick=display("c5q9")>
+          <p>Yes</p>
+          <p>because </p> <!-- why? -->
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>fans[1,2]</tt> where <tt>fans</tt> is</p>
+          <pre>town <- c("Boston", "New York", "New York", "Boston", "Boston")
+team <- c("Red Sox", "Yankees", "Yankees", "Yankees", "Red Sox")
+fans <- table(town, team)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c5q10" onclick=display("c5q10")>
+          <p>1</p>
+          <p>because <tt>fans</tt> looks like:</p>
+          <pre>          team
+town       Red Sox Yankees
+  Boston         2       1
+  New York       0       2
+</pre>
+        </div>
+    </div>
+   <hr>
+    
+    
+    <!-- Make your own tables! -->
+    <!-- Two way tables! -->
+    
+  <hr>
+      <footer>
+        <p><center><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="img/license.png"></a></center></p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
