@@ -143,19 +143,291 @@
           <p>because the first index, <tt>-1</tt> is negative while the second index, <tt>2</tt> is positive.</p>
         </div>
     </div> 
-   <hr> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[c(0)]</tt> where <tt>example</tt> is</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q11" onclick=display("c6q11")>
+          <p><tt>character(0)</tt>, an empty vector</p>
+          <p>because there is nothing at index zero in a vector.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[c(TRUE, FALSE, TRUE, FALSE)]</tt> where <tt>example</tt> is</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q12" onclick=display("c6q12")>
+          <p><tt>[1] "cat"     "pelican"</tt></p>
+          <p>because in the indexing vector, the first and third positions were <tt>TRUE</tt>, and <tt>"cat"</tt> and <tt>"pelican"</tt> are in the first and third position in <tt>example</tt>.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[c(TRUE, FALSE)]</tt> where <tt>example</tt> is</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q13" onclick=display("c6q13")>
+          <p><tt>[1] "cat"     "pelican"</tt></p>
+          <p>because in the indexing vector, the first position is <tt>TRUE</tt>, the second position is <tt>FALSE</tt> and the indexing vector is <i>recycled</i> to fit the length of the vector being indexed.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[c(TRUE)]</tt> where <tt>example</tt> is</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q14" onclick=display("c6q14")>
+          <p><tt>[1] "cat"     "dog"     "pelican" "frog"</tt></p>
+          <p>because in the indexing vector, the first position is <tt>TRUE</tt>, and the indexing vector is <i>recycled</i> to fit the length of the vector being indexed.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[TRUE]</tt> where <tt>example</tt> is</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15" onclick=display("c6q15")>
+          <p><tt>[1] "cat"     "dog"     "pelican" "frog"</tt></p>
+          <p>because the index is interpreted as a vector with one logical value, <tt>TRUE</tt>.  In the indexing vector, the first position is <tt>TRUE</tt>, and the indexing vector is <i>recycled</i> to fit the length of the vector being indexed.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example["pet three"]</tt> where</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")
+names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q16" onclick=display("c6q16")>
+          <p><tt>"pelican" </tt></p>
+          <p>because the index is a named value, and in the vector being indexed into, the value named <tt>"pet three"</tt> is <tt>"pelican"</tt>.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[c("pet three", "pet four")]</tt> where</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")
+names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q17" onclick=display("c6q17")>
+          <p><tt>"pelican"    "frog"  </tt></p>
+          <p>because the index is two named values, and in the vector being indexed into, the value named <tt>"pet three"</tt> and <tt>"pet four"</tt> are <tt>"pelican"</tt> and <tt>"frog"</tt>.</p>
+        </div>
+    </div> 
+   <hr>
         <div class="row">
             <div class="col-md-8 col-md-offset-2 summarybox">
-                    <div class="summary-header"></div>
+                    <div class="summary-header">Summary: Vector Indexing</div>
                     <div class="cover" id="c6s1" onclick=display("c6s1")>
-                     <p></p>
+                    <p>You can index into a vector using square brackets (<tt>[]</tt>).  Indexes can be a vector of values, or single values (which are interpretable as vectors of length one).  When positively signed values are used, the positions indicated by the vector will be returned.  When negatively signed values are used, all positions except those indicated by the vector will be returned.  You cannot mix positively and negatively signed integers.  In addition to integers, you can also use logical values as an index.  When doing so, positions selected with <tt>TRUE</tt> will be returned.  You can use characters in the index as well, if those characters correspond to names in a named vector.</p>
+                    <p>Vector indexing is subject to recycling.  If your vector index is shorter than the vector being indexed, R will start from the beginning of your vector index, looping through it as many times as needed to match the length of the vector being indexed.</p>
                     </div>
             </div>
         </div>
-   
-   <!-- Indexing by zero. -->
-   <!-- Indexing by logical vectors. --> 
+    <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[1]</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q18" onclick=display("c6q18")>
+          <p><tt>[1] "daisy"</tt></p>
+          <p>because the index is given the value of <tt>1</tt>, and <tt>"daisy"</tt> is the first value in <tt>flowers</tt></p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[2]</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q19" onclick=display("c6q19")>
+          <p><tt>[1] "goldenrod"</tt></p>
+          <p>because the index is given the value of <tt>2</tt>, and <tt>"goldenrod"</tt> is the second value in the first column of <tt>flowers</tt>:</p>
+          <pre>     [,1]        [,2]       
+[1,] "daisy"     "sunflower"
+[2,] "goldenrod" "dandelion"
+</pre>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[2]</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2, byrow=TRUE)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q20" onclick=display("c6q20")>
+          <p><tt>[1] "sunflower"</tt></p>
+          <p>because the index is given the value of <tt>2</tt>, and <tt>"sunflower"</tt> is the second value in the first column of <tt>flowers</tt>:</p>
+          <pre>     [,1]        [,2]       
+[1,] "daisy"     "goldenrod"
+[2,] "sunflower" "dandelion"
+</pre>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[2,]</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q21" onclick=display("c6q21")>
+          <p><tt>[1] "goldenrod" "dandelion"</tt></p>
+          <p>because the index given specifies the row but not the column, and the second row in <tt>flowers</tt> is <tt>[1] "goldenrod" "dandelion"</tt></p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[,2]</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q22" onclick=display("c6q22")>
+          <p><tt>[1] "sunflower" "dandelion"</tt></p>
+          <p>because the index given specifies the column but not the row, and the second column in <tt>flowers</tt> is <tt>[1] "sunflower" "dandelion"</tt></p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>class(flowers[2])</tt> where</p>
+          <pre>flowers <- matrix(c("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q23" onclick=display("c6q23")>
+          <p><tt>[1] "character"</tt></p>
+          <p>because the matrix <tt>flowers</tt> was created from a character vector, and we are asking about a single element of that matrix.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>class(flowers[2])</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q24" onclick=display("c6q24")>
+          <p><tt>[1] "list"</tt></p>
+          <p>because the matrix <tt>flowers</tt> was created from a list vector, and we are asking about a single element of that matrix.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>class(flowers[[2]])</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q25" onclick=display("c6q25")>
+          <p><tt>[1] "character"</tt></p>
+          <p>because the matrix <tt>flowers</tt> was created from a list vector, and we are asking about a single element within a single element of that matrix.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>class(flowers[[2]])</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q25" onclick=display("c6q25")>
+          <p><tt>[1] "character"</tt></p>
+          <p>because the matrix <tt>flowers</tt> was created from a list vector, and we are asking about a single element within a single element of that matrix.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[2,2]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q26" onclick=display("c6q26")>
+          <p><tt>[1] "dandelion"</tt></p>
+          <p>because the index given specifies second row and the second column, and the value in the second row and second column in <tt>flowers</tt> is <tt>"dandelion"</tt>.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[2,2]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q26" onclick=display("c6q26")>
+          <p><tt>[1] "dandelion"</tt></p>
+          <p>because the index given specifies second row and the second column, and the value in the second row and second column in <tt>flowers</tt> is <tt>"dandelion"</tt>.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[-1]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q27" onclick=display("c6q27")>
+          <p><tt>[1] "goldenrod" "sunflower" "dandelion"</tt></p>
+          <p>because <tt>"daisy"</tt> is the first element in the matrix, and <tt>"goldenrod"</tt>, <tt>"sunflower"</tt> and <tt>"dandelion"</tt> are the remaining elements.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[-1,]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q28" onclick=display("c6q28")>
+          <p><tt>[2,] "goldenrod" "dandelion"</tt></p>
+          <p>because <tt>[1,] "daisy"     "sunflower"</tt> is the first row in the matrix, and <tt>"goldenrod"</tt>, and <tt>[2,] "goldenrod" "dandelion"</tt> are the remaining rows.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[,-2]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q28-1" onclick=display("c6q28-1")>
+          <p><tt>[1] "daisy"     "goldenrod"</tt></p>
+          <p>because <tt>[1] "sunflower" "dandelion"</tt> is the second column in the matrix, and <tt>"goldenrod"</tt>, and <tt>[1] "daisy"     "goldenrod"</tt> are the remaining columns.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers["lots", "pretty"]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)
+colnames(flowers) <- c("pretty", "ugly")
+rownames(flowers) <- c("lots", "few")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q29" onclick=display("c6q29")>
+          <p><tt>[1] "daisy"</tt></p>
+          <p>because <tt>"daisy"</tt> is the value of the element in row <tt>"lots"</tt> and column <tt>"pretty"</tt>.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers["ugly", "few"]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)
+colnames(flowers) <- c("pretty", "ugly")
+rownames(flowers) <- c("lots", "few")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q30" onclick=display("c6q30")>
+          <p>nothing</p>
+          <p>because there is no row <tt>"ugly"</tt> or column <tt>"few"</tt> in matrix <tt>flowers</tt>.</p>
+        </div>
+    </div>
+    
+   <!-- A matrix can itself be the index: http://zangsir.weebly.com/computing-log/r-indexmatrix-and-arrays  That is what they are referring to when they say you can't use a negative integer there. Not simply indexing into metrices. -->
+    
+   <!-- Consider whether byrows matrices should come up in the matrices chapter? -->
+   <!-- Redo the flower matrices so that the columns and rows are more reasonable. -->
    <!-- and then of course indexing with matrices, arrays, dataframes, etc. -->
+   <!-- You know, I possibly need to go back and establish recycling at the beginning. :( -->
+   
    <hr>
 
       <footer>
