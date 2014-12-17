@@ -48,11 +48,26 @@
           <pre>kittens!</pre>
           <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
         </div>
-        <div class="col-md-6 cover" id="intro" onclick=display("intro")>
+        <div class="col-md-6 cover" id="intro-q" onclick=display("intro-q")>
           <p>Yes,</p>
           <p>because <tt>kittens</tt> are the best animal.</p>
         </div>
       </div> 
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+            <p>There are also summary boxes, which can likewise be viewed by clicking the content:</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 summarybox">
+            <div class="summary-header">Summary: Kittens</div>
+                    <div class="cover" id="intro-s" onclick=display("intro-s")> 
+                        <p>Kittens are the best!</p>
+                    </div>
+        </div>
+      </div>
       <hr>
       <div class="row">
         <div class="col-md-12">
@@ -68,11 +83,21 @@
                 <li><a href="./ch3.html">Chapter 3: Data Frames</a></li>
                 <li><a href="./ch4.html">Chapter 4: Factors and Arrays</a></li> 
                 <li><a href="./ch5.html">Chapter 5: Tables</a></li> 
+                <!-- Creating logical vectors?  Creating Sequences (see r manual 2.3)?  Maybe put with factors & arrays, and make a Misc? -->
             </ul>
-            <p><b>Part Two: General Functions</b></p>
+            <p><b>Part Two: Manipulating Data Structures</b></p>
+            <ul>
+            <li><a href="./ch6.html">Chapter 6: Indexing</a></li>
+            <!--<li><a href="./ch7.html">Chapter 7: Vector Arithmetic</a></li> -->
+            <!-- <li><a href="./ch8.html">Chapter 8: Apply</a></li> -->
+            </ul>
+            <p><b>Part Three: Basic Statistics</b></p>
             <ul>
             </ul>
-            <p><b>Part Three: Stats!</b></p>
+            <p><b>Part Three: Advanced Statistics</b></p>
+            <ul>
+            </ul>
+            <p><b>Part Five: Other Useful Libraries</b></p>
             <ul>
             </ul>
             <h2>Did anyone help you?</h2>
@@ -82,13 +107,19 @@
                 <li>Hadley Wickham's <a href="http://adv-r.had.co.nz/">Advanced R</a></li>
             </ul>
             <h2>The Ten Warnings</h2>
-            <p><em>The Little Schemer</em> has "The Ten Commandments". I'm not that cocky -- instead, I've got ten warnings for you.  These are ways that R might trip you up.</p>
+            <p><em>The Little Schemer</em> has "The Ten Commandments".  I'm not a very commanding person, but I have noticed that R has a tendency to quietly do things you might not expect.  So, instead, I've got ten warnings for you about ways that R might trip you up.</p>
             <ul>
-                <li>Type Coercion: Atomic vectors and matrices in R must have objects all of the same type.  This means that R will sometimes silently convert your data from one type to another.  This is covered in chapters 1 and 2, but is worth stating explicitly.  As  <a href="http://adv-r.had.co.nz/">Hadley Wickham</a> puts it: "All elements of an atomic vector must be the same type, so when you attempt to combine different types they will be coerced to the most flexible type. Types from least to most flexible are: logical, integer, double, and character."  Because matricies can only have different types when created by shaping a list, they're much simpler: any matrix made from a list is a matrix of type lists.  This means that to access the <i>value</i> in row 1, column 1 of a matrix formed out of a list, you need to use the syntax <tt>matrix[[1,1]]</tt> rather than <tt>matrix[1,1]</tt> (which gets the list containing the value).</li>
-                <p></p>
                 <li>Recycling: If you ask R to do vector arithmetic with vectors of different lengths, R will <a href="https://www.inkling.com/read/r-cookbook-paul-teetor-1st/chapter-5/recipe-5-3">recycle</a> the shorter of the two vectors until the length matches. If the longer vector is a multiple of the shorter vector, it will do so silently, without telling you. If the longer vector is not a multiple, it will give a warning or not work at all. Keep an eye out for situations where R might be silently recycling your data without you realizing it.</li>
                 <p></p>
-                <li>Filling: <!-- See array(1:8, dim=c(2,5)) (seems different than recycling)--></li>
+                <!-- Filling? What is it called?  See array(1:8, dim=c(2,5)) (seems different than recycling, or at least is even quieter about warnings.)-->
+                <p></p>
+                <li>Type Coercion: Atomic vectors and matrices in R must have objects all of the same type.  This means that R will sometimes silently convert your data from one type to another.  This is covered in chapters 1 and 2, but is worth stating explicitly.  As  <a href="http://adv-r.had.co.nz/">Hadley Wickham</a> puts it: "All elements of an atomic vector must be the same type, so when you attempt to combine different types they will be coerced to the most flexible type. Types from least to most flexible are: logical, integer, double, and character."  Because matricies can only have different types when created by shaping a list, they're much simpler: any matrix made from a list is a matrix of type lists.  This means that to access the <i>value</i> in row 1, column 1 of a matrix formed out of a list, you need to use the syntax <tt>matrix[[1,1]]</tt> rather than <tt>matrix[1,1]</tt> (which gets the list containing the value).</li>               
+                <p></p>
+                <!-- Simplifying vs preserving subsetting: http://adv-r.had.co.nz/Subsetting.html#simplify-preserve -->
+                
+                <!-- Something about what happens when you feed lists or (1,2,3,4,5) (not c(1,2,3,4,5)) to table? -->
+                
+                <!-- Index out of bounds == NA, not error: c(1,2,3)[4] -->
             </ul>
         </div>
      </div>

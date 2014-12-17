@@ -89,6 +89,16 @@
         </div>
     </div>   
    <hr>
+    <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>"cat"[1]</tt></p>
+        </div>
+        <div class="col-md-6 cover" id="c6q5-2" onclick=display("c6q5-2")>
+          <p><tt>[1] "cat"</tt></p>
+          <p>because the single argument, <tt>1</tt> is a vector of length one corresponding to the first value of the unnamed vector of length one, and that first value is <tt>"cat"</tt>.</p>
+        </div>
+    </div>   
+   <hr>
      <div class="row">
         <div class="col-md-6">
           <p>What is <tt>example[-2]</tt> where <tt>example</tt> is</p>
@@ -201,6 +211,105 @@
    <hr>
      <div class="row">
         <div class="col-md-6">
+          <p>What is <tt>numbers == 5</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-2" onclick=display("c6q15-2")>
+          <p><tt>[1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt> Only the statement <tt>5 == 5</tt> is <tt>TRUE</tt>, while all others are replaced by <tt>FALSE</tt>.</p> <!-- Do booleans need to be introduced somewhere? Boolean operators? Perhaps early on?  Sigh... -->
+        </div>
+    </div> 
+   <hr>   
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers[numbers == 5]</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-3" onclick=display("c6q15-3")>
+          <p><tt>[1] 5</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>, and returns those that are <tt>TRUE</tt>.  Only the statement <tt>5 == 5</tt> is <tt>TRUE</tt>, so only <tt>5</tt> is returned.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers[numbers > 8]</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-4" onclick=display("c6q15-4")>
+          <p><tt>[1]  9 10</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>, and returns those that are <tt>TRUE</tt>.  The statements <tt>9 > 8</tt> and <tt>10 > 8</tt> are <tt>TRUE</tt>, so <tt>9</tt> and <tt>10</tt> are returned.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>!numbers > 4</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-5" onclick=display("c6q15-5")>
+          <p><tt>[1]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  Because the expression is prefaced by <tt>!</tt> it assigns <tt>TRUE</tt> when elements evalute to <tt>FALSE</tt> and vice versa.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers[!numbers > 4]</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-6" onclick=display("c6q15-6")>
+          <p><tt>[1] 2 3 4</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  Because the expression is prefaced by <tt>!</tt> it assigns <tt>TRUE</tt> when elements evalute to <tt>FALSE</tt> and vice versa. The statements <tt>2 > 4</tt>, <tt>3 > 4</tt> and <tt>4 > 4</tt> are <tt>FALSE</tt>, so they are assigned to <tt>TRUE</tt> so <tt>2</tt>, <tt>3</tt> and <tt>4</tt> are returned.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers > 4 & numbers == 6</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-7" onclick=display("c6q15-7")>
+          <p><tt>[1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  The logical expression is a compound expression using <tt>&</tt> which means that expressions must evaluate to true for the corresponding index element to be <tt>TRUE</tt>.  Because only <tt>6</tt> is both greater than four and equal to six, all other elements of the index vector are <tt>FALSE</tt>.</p> <!-- Maybe use different examples for showing the vector and showing how it indexes in, once you've done it once or twice.  (Check all in logical indexing section.)-->
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers[numbers > 4 & numbers == 6]</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-8" onclick=display("c6q15-8")>
+          <p><tt>[1] 6</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  The logical expression is a compound expression using <tt>&</tt> which means that expressions must evaluate to true for the corresponding index element to be <tt>TRUE</tt>.  Because only <tt>6</tt> is both greater than four and equal to six, all other elements of the index vector are <tt>FALSE</tt>.  The <tt>TRUE</tt> value, <tt>6</tt>, is returned.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers > 8 | numbers < 3</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-9" onclick=display("c6q15-9")>
+          <p><tt>[1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  The logical expression is a compound expression using <tt>|</tt> which means that expressions only need to evaluate to true for one of the two expressions, not both, for the corresponding index element to be <tt>TRUE</tt>.  Because <tt>9</tt> and <tt>10</tt> are greater than eight, and <tt>2</tt> is less than three, these elements are set to <tt>TRUE</tt>, while all others are <tt>FALSE</tt>.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>numbers[numbers > 8 | numbers < 3]</tt> where <tt>numbers</tt> is</p>
+          <pre>c(2:10)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q15-10" onclick=display("c6q15-10")>
+          <p><tt>[1]  2  9 10</tt></p>
+          <p>because the logical expression generates an index of <tt>TRUE</tt> and <tt>FALSE</tt> values corresponding to the elements of <tt>numbers</tt>.  The logical expression is a compound expression using <tt>|</tt> which means that expressions only need to evaluate to true for one of the two expressions, not both, for the corresponding index element to be <tt>TRUE</tt>.  Because <tt>9</tt> and <tt>10</tt> are greater than eight, and <tt>2</tt> is less than three, these elements are set to <tt>TRUE</tt>, while all others are <tt>FALSE</tt>. The <tt>TRUE</tt> values, <tt>2</tt>, <tt>9</tt> and <tt>10</tt> are returned.</p>
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
           <p>What is <tt>example["pet three"]</tt> where</p>
           <pre>example <- c("cat", "dog", "pelican", "frog")
 names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
@@ -223,6 +332,29 @@ names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
         </div>
     </div> 
    <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[length(example)]</tt> where</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q17-2" onclick=display("c6q17-2")>
+          <p><tt>[1] "frog"</tt></p>
+          <p>because the index is equal to <tt>length(example)</tt>, and the length of <tt>example</tt> is four, and the fourth value in <tt>example</tt> is <tt>frog</tt>.</p> <!-- You know, I don't think length has been introduced yet. Can I use dim instead? -->
+        </div>
+    </div> 
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>example[exampleIndex]</tt> where</p>
+          <pre>example <- c("cat", "dog", "pelican", "frog")
+exampleIndex <- c(length(example), length(example), length(example))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q17-3" onclick=display("c6q17-3")>
+          <p><tt>[1] "frog" "frog" "frog"</tt></p>
+          <p>because the index contains <tt>length(example)</tt> three times, and the length of <tt>example</tt> is four, and the fourth value in <tt>example</tt> is <tt>frog</tt>.</p>
+        </div>
+    </div> 
+   <hr>        
         <div class="row">
             <div class="col-md-8 col-md-offset-2 summarybox">
                     <div class="summary-header">Summary: Vector Indexing</div>
@@ -356,7 +488,7 @@ names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
           <p>What is <tt>flowers[2,2]</tt> where</p>
           <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
         </div>
-        <div class="col-md-6 cover" id="c6q26" onclick=display("c6q26")>
+        <div class="col-md-6 cover" id="c6q26-2" onclick=display("c6q26-2")>
           <p><tt>[1] "dandelion"</tt></p>
           <p>because the index given specifies second row and the second column, and the value in the second row and second column in <tt>flowers</tt> is <tt>"dandelion"</tt>.</p>
         </div>
@@ -389,7 +521,7 @@ names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
           <p>What is <tt>flowers[,-2]</tt> where</p>
           <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
         </div>
-        <div class="col-md-6 cover" id="c6q28-1" onclick=display("c6q28-1")>
+        <div class="col-md-6 cover" id="c6q29" onclick=display("c6q29")>
           <p><tt>[1] "daisy"     "goldenrod"</tt></p>
           <p>because <tt>[1] "sunflower" "dandelion"</tt> is the second column in the matrix, and <tt>"goldenrod"</tt>, and <tt>[1] "daisy"     "goldenrod"</tt> are the remaining columns.</p>
         </div>
@@ -397,12 +529,69 @@ names(example) <- c("pet one", "pet two", "pet three", "pet four")</pre>
    <hr>
      <div class="row">
         <div class="col-md-6">
+          <p>What is <tt>flowers[1, 2]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q29-1" onclick=display("c6q29-1")>
+          <p><tt>[1] "sunflower"</tt></p>
+          <p>because the two arguments, <tt>1</tt> and <tt>two</tt>, specify the value to be returned, and the value in the first row, second column is <tt>"sunflower"</tt>.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[c(1, 2)]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q30" onclick=display("c6q30")>
+          <p><tt>[1] "daisy"     "goldenrod"</tt></p>
+          <p>because the single argument, <tt>c(1, 2)</tt> is a vector of indices corresponding to the first and second values, which are <tt>"daisy"</tt> and <tt>"goldenrod"</tt>.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[c(-3)]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q30-1" onclick=display("c6q30-1")>
+          <p><tt>[1] "daisy"     "goldenrod" "dandelion"</tt></p>
+          <p>because the third value of <tt>flowers</tt> is <tt>"sunflower"</tt>, and <tt>"daisy"</tt>, <tt>"goldenrod"</tt> and <tt>"dandelion"</tt> are the remaining values.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[c(TRUE,FALSE)]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q30-2" onclick=display("c6q30-2")>
+          <p><tt>[1] "daisy"     "sunflower"</tt></p>
+          <p>because in the indexing vector, the first position is <tt>TRUE</tt>, the second position is <tt>FALSE</tt> and the indexing vector is <i>recycled</i> to fit the length of the vector being indexed.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[matrix(c(1,4))]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)
+colnames(flowers) <- c("pretty", "ugly")
+rownames(flowers) <- c("lots", "few")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q31" onclick=display("c6q31")>
+          <p><tt>[1] "daisy"     "dandelion"</tt></p>
+          <p>because the single argument, <tt>matrix(c(1, 4))</tt> is a vector of indices corresponding to the first and fourth values, which are <tt>"daisy"</tt> and <tt>"dandelion"</tt>.</p>
+        </div>
+    </div>
+<hr>
+     <div class="row">
+        <div class="col-md-6">
           <p>What is <tt>flowers["lots", "pretty"]</tt> where</p>
           <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)
 colnames(flowers) <- c("pretty", "ugly")
 rownames(flowers) <- c("lots", "few")</pre>
         </div>
-        <div class="col-md-6 cover" id="c6q29" onclick=display("c6q29")>
+        <div class="col-md-6 cover" id="c6q32" onclick=display("c6q32")>
           <p><tt>[1] "daisy"</tt></p>
           <p>because <tt>"daisy"</tt> is the value of the element in row <tt>"lots"</tt> and column <tt>"pretty"</tt>.</p>
         </div>
@@ -415,18 +604,130 @@ rownames(flowers) <- c("lots", "few")</pre>
 colnames(flowers) <- c("pretty", "ugly")
 rownames(flowers) <- c("lots", "few")</pre>
         </div>
-        <div class="col-md-6 cover" id="c6q30" onclick=display("c6q30")>
+        <div class="col-md-6 cover" id="c6q33" onclick=display("c6q33")>
           <p>nothing</p>
           <p>because there is no row <tt>"ugly"</tt> or column <tt>"few"</tt> in matrix <tt>flowers</tt>.</p>
         </div>
     </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>flowers[c("lots", "pretty")]</tt> where</p>
+          <pre>flowers <- matrix(list("daisy", "goldenrod", "sunflower", "dandelion"), 2)
+colnames(flowers) <- c("pretty", "ugly")
+rownames(flowers) <- c("lots", "few")</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q34" onclick=display("c6q34")>
+          <p><tt>[1] NA NA</tt></p>
+          <p></p> <!-- Not sure why!  All c("","") as indices seem to do this.-->
+        </div>
+    </div>
+   <hr>
+   <!-- Figure out this bit: flowers[c(1,1),c(2,2)] -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 summarybox">
+            <div class="summary-header">Summary: Matrix Indexing</div>
+            <div class="cover" id="c6s2" onclick=display("c6s2")>
+                    <p>As with vector indexing, you can index into a matrix using square brackets <tt>[]</tt> or double square brackets <tt>[[ ]]</tt>.  Generally, double square brackets are used when the matrix is composed of lists.  Using square brackets then returns the single values inside each list instead of the single-value list itself.  For matrices, indexes can be one or two individual values, vectors of values, or matrices of values.  <!-- Clarify difference between flowers[c(1,2)] and flowers[1,2] here. --></p>
+                    <p>When positively signed values are used, the positions indicated by the values will be returned.  When negatively signed values are used, all positions except those indicated by the values will be returned.  You cannot mix positively and negatively signed integers.  In addition to integers, you can also use logical values as an index.  When doing so, positions selected with <tt>TRUE</tt> will be returned.  You can use characters in the index as well, if those characters correspond to rownames or column names in the matrix being indexed into.</p>
+                    <p>Matrix indexing is subject to recycling. <!-- Always? --></p>
+             </div>
+            </div>
+        </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>myArray[myIndex]</tt> where</p>
+          <pre>myArray <- array(1:6, dim=c(2,2,2))
+myIndex <- array(1, dim=c(2,2,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q35" onclick=display("c6q35")>
+          <p><tt>[1] 1 1 1 1 1 1 1 1</tt></p>
+          <p>because <tt>myIndex</tt> is an array of 1s in 2 x 2 x 2 dimenions, and the value of the first position in <tt>myArray</tt> is 1.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>myArray[myIndex]</tt> where</p>
+          <pre>myArray <- array(1:6, dim=c(2,2,2))
+myIndex <- array(7, dim=c(2,2,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q36" onclick=display("c6q36")>
+          <p><tt>[1] 1 1 1 1 1 1 1 1</tt></p>
+          <p>because <tt>myIndex</tt> is an array of 1s in 2 x 2 x 2 dimenions, and the value of the seventh position in <tt>myArray</tt> is 1.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>myArray[myIndex]</tt> where</p>
+          <pre>myArray <- array(1:6, dim=c(2,2,2))
+myIndex <- array(c(1,2,7), dim=c(2,2,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q37" onclick=display("c6q37")>
+          <p><tt>[1] 1 2 1 1 2 1 1 2</tt></p>
+          <p>because <tt>myIndex</tt> is an array of 1s in 2 x 2 x 2 dimenions, and the value of the first, second and seventh positions of <tt>myArray</tt> are 1, 2 and 7 respectively.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>myArray[myIndex]</tt> where</p>
+          <pre>myArray <- array(1:6, dim=c(2,2,2))
+myIndex <- array(c(1,2,7), dim=c(2,2,2))</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q38" onclick=display("c6q38")>
+          <p><tt>[1] 1 2 1 1 2 1 1 2</tt></p>
+          <p>because <tt>myIndex</tt> is an array of 1s in 2 x 2 x 2 dimenions, and the value of the first, second and seventh positions of <tt>myArray</tt> are 1, 2 and 7 respectively.</p>
+        </div>
+    </div>
+   <hr>
+     <div class="row">
+        <div class="col-md-6">
+          <p>What is <tt>myArray[myIndex]</tt> where</p>
+          <pre>myArray <- array(1:6, dim=c(2,2,2))
+ myIndex <- c(1,2,3,7)</pre>
+        </div>
+        <div class="col-md-6 cover" id="c6q39" onclick=display("c6q39")>
+          <p><tt>[1] 1 2 3 1</tt></p>
+          <p>because <tt>myIndex</tt> is a vector of values <tt>1</tt>, <tt>2</tt>, <tt>3</tt> and <tt>7</tt> and the values of those positions in <tt>myArray</tt> are 1, 2, 3 and 1.</p>
+        </div>
+    </div>
+   <hr>
+   <div class="row">
+        <div class="col-md-8 col-md-offset-2 summarybox">
+            <div class="summary-header">Summary: Array Indexing</div>
+            <div class="cover" id="c6s3" onclick=display("c6s3")>
+                    <p>Three-dimensional array indexing is very similar to two-dimensional array indexing, aka matrix indexing.  As with matrix and vector indexing, you can do the following:</p>
+                    <ul>
+                    <li>index using square brackets <tt>[]</tt> or double square brackets <tt>[[]]</tt></li>
+                    <li>use individual values, vectors of values, matrices of values, or arrays of values</li>
+                    <li>use positive or negative values but not both at the same time</li>
+                    <li>use logical or character values</li>
+                    </ul>
+             </div>
+            </div>
+        </div>
+   <hr>
+   
+   <!-- Inspired by/from http://thomasleeper.com/Rcourse/Tutorials/vectorindexing.html:
+        * show that !(a & b) is not the same as !a & b
+        * do a set of three( & & | etc)
+        * as.logical(c(1, 1, 0))
+        
+    -->
     
-   <!-- A matrix can itself be the index: http://zangsir.weebly.com/computing-log/r-indexmatrix-and-arrays  That is what they are referring to when they say you can't use a negative integer there. Not simply indexing into metrices. -->
+   <!-- indexing with dataframes, factors?, etc. -->
+
+   <!-- Add list indexing to vector indexing (see advanced R)-->
+   
+   <!-- Should "arrays are vectors in column-major order" be included here, or in the matrices/arrays chapter?>
     
    <!-- Consider whether byrows matrices should come up in the matrices chapter? -->
    <!-- Redo the flower matrices so that the columns and rows are more reasonable. -->
-   <!-- and then of course indexing with matrices, arrays, dataframes, etc. -->
    <!-- You know, I possibly need to go back and establish recycling at the beginning. :( -->
+   <!-- Possibly need to introduce indexing with each new data type?  Also, maybe in addition to summaries need special boxes with rules/ideas that can be referred to later. -->
    
    <hr>
 
