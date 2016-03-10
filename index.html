@@ -72,53 +72,32 @@
       <div class="row">
         <div class="col-md-12">
             <p>This project is nowhere near as elegant as <em>The Little Schemer</em>. That's mostly my fault, but it's at least a little bit R's fault.</p>
-            <h2>Who wrote this, and why should I trust you?</h2>
-            <p>My name's <a href="http://www.shaunagm.net/">Shauna</a> and you shouldn't trust me. I started this project to help me learn R, so I have likely gotten things wrong. Suggestions and corrections are very welcome. You can view the project's repository <a href="https://github.com/little-r">here</a> and issue tracker <a href="https://github.com/little-r/little-r.github.io/issues">here</a>. Feel free to make pull requests as well.</p>
+            <h2>Who wrote this, and why?</h2>
+            <p>My name's <a href="http://www.shaunagm.net/">Shauna</a>. I started this project to help me learn R, so I have likely gotten things wrong. Suggestions and corrections are very welcome. You can view the project's repository <a href="https://github.com/little-r">here</a> and issue tracker <a href="https://github.com/little-r/little-r.github.io/issues">here</a>. Feel free to make pull requests as well.</p>
             <h2>Where's the table of contents?</h2>
             <p>Right here!</p>
-            <p><b>Part One: Data Structures</b></p>
             <ul>
                 <li><a href="./ch1.html">Chapter 1: Vectors</a></li>
                 <li><a href="./ch2.html">Chapter 2: Matrices</a></li>
                 <li><a href="./ch3.html">Chapter 3: Data Frames</a></li>
                 <li><a href="./ch4.html">Chapter 4: Factors and Arrays</a></li> 
                 <li><a href="./ch5.html">Chapter 5: Tables</a></li> 
-                <!-- Creating logical vectors?  Creating Sequences (see r manual 2.3)?  Maybe put with factors & arrays, and make a Misc? -->
+                <li><a href="./ch6.html">Chapter 6: Indexing</a></li>
             </ul>
-            <p><b>Part Two: Manipulating Data Structures</b></p>
-            <ul>
-            <li><a href="./ch6.html">Chapter 6: Indexing</a></li>
-            <!--<li><a href="./ch7.html">Chapter 7: Vector Arithmetic</a></li> -->
-            <!-- <li><a href="./ch8.html">Chapter 8: Apply</a></li> -->
-            </ul>
-            <p><b>Part Three: Basic Statistics</b></p>
-            <ul>
-            </ul>
-            <p><b>Part Three: Advanced Statistics</b></p>
-            <ul>
-            </ul>
-            <p><b>Part Five: Other Useful Libraries</b></p>
-            <ul>
-            </ul>
-            <h2>Did anyone help you?</h2>
+            <h2>What resources have you used?</h2>
             <p>I've used the following resources while making this project, in no particular order:</p>
             <ul>
                 <li>Neal Groothuis's <a href="http://www.nealgroothuis.name/introduction-to-data-types-and-objects-in-r/">Introduction to Data Types and Objects in R</a></li>
-                <li>Hadley Wickham's <a href="http://adv-r.had.co.nz/">Advanced R</a></li>
+                <li>Hadley Wickham's <a href="http://adv-r.had.co.nz/">Advanced R</a></l
             </ul>
-            <h2>The Ten Warnings</h2>
-            <p><em>The Little Schemer</em> has "The Ten Commandments".  I'm not a very commanding person, but I have noticed that R has a tendency to quietly do things you might not expect.  So, instead, I've got ten warnings for you about ways that R might trip you up.</p>
+            <h2>Anything else?</h2>
+            <p>While working on this project, I discovered a few things R does that are worth a warning.</p>
             <ul>
                 <li>Recycling: If you ask R to do vector arithmetic with vectors of different lengths, R will <a href="https://www.inkling.com/read/r-cookbook-paul-teetor-1st/chapter-5/recipe-5-3">recycle</a> the shorter of the two vectors until the length matches. If the longer vector is a multiple of the shorter vector, it will do so silently, without telling you. If the longer vector is not a multiple, it will give a warning or not work at all. Keep an eye out for situations where R might be silently recycling your data without you realizing it.</li>
-                <p></p>
-                <!-- Filling? What is it called?  See array(1:8, dim=c(2,5)) (seems different than recycling, or at least is even quieter about warnings.)-->
-                <p></p>
                 <li>Type Coercion: Atomic vectors and matrices in R must have objects all of the same type.  This means that R will sometimes silently convert your data from one type to another.  This is covered in chapters 1 and 2, but is worth stating explicitly.  As  <a href="http://adv-r.had.co.nz/">Hadley Wickham</a> puts it: "All elements of an atomic vector must be the same type, so when you attempt to combine different types they will be coerced to the most flexible type. Types from least to most flexible are: logical, integer, double, and character."  Because matricies can only have different types when created by shaping a list, they're much simpler: any matrix made from a list is a matrix of type lists.  This means that to access the <i>value</i> in row 1, column 1 of a matrix formed out of a list, you need to use the syntax <tt>matrix[[1,1]]</tt> rather than <tt>matrix[1,1]</tt> (which gets the list containing the value).</li>               
-                <p></p>
+                <!-- Filling? What is it called?  See array(1:8, dim=c(2,5)) (seems different than recycling, or at least is even quieter about warnings.)-->
                 <!-- Simplifying vs preserving subsetting: http://adv-r.had.co.nz/Subsetting.html#simplify-preserve -->
-                
                 <!-- Something about what happens when you feed lists or (1,2,3,4,5) (not c(1,2,3,4,5)) to table? -->
-                
                 <!-- Index out of bounds == NA, not error: c(1,2,3)[4] -->
             </ul>
         </div>
